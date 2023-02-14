@@ -3,10 +3,13 @@ _____Задание 1_____
 
 Просто смотрим коммит
 
-amaksimov@git:~/devops-netology/terraform$ git show aefea
-commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545
-Author: Alisdair McDiarmid <alisdair@users.noreply.github.com>
-Date:   Thu Jun 18 10:29:58 2020 -0400
+amaksimov@git:~/devops-netology/terraform$ git show aefea  
+
+commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545  
+
+Author: Alisdair McDiarmid <alisdair@users.noreply.github.com>  
+
+Date:   Thu Jun 18 10:29:58 2020 -0400  
 
     Update CHANGELOG.md
 
@@ -15,10 +18,14 @@ _____Задание 2_____
 
 Просто смотрим коммит
 
-amaksimov@git:~/devops-netology/terraform$ git show 85024d3
-commit 85024d3100126de36331c6982bfaac02cdab9e76 (tag: v0.12.23)
-Author: tf-release-bot <terraform@hashicorp.com>
-Date:   Thu Mar 5 20:56:10 2020 +0000
+amaksimov@git:~/devops-netology/terraform$ git show 85024d3  
+
+commit 85024d3100126de36331c6982bfaac02cdab9e76 (tag: v0.12.23)  
+
+Author: tf-release-bot <terraform@hashicorp.com>  
+
+Date:   Thu Mar 5 20:56:10 2020 +0000  
+
 
     v0.12.23
 
@@ -26,22 +33,31 @@ _____Задание 3_____
 
 Нужный нам коммит был создан в резултате мерджа 2х коммитов 
 
-amaksimov@git:~/devops-netology/terraform$ git show b8d720 --parents
-commit b8d720f8340221f2146e4e4870bf2ee0bc48f2d5 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b
-Merge: 56cd7859e0 9ea88f22fc
-Author: Chris Griggs <cgriggs@hashicorp.com>
-Date:   Tue Jan 21 17:45:48 2020 -0800
+amaksimov@git:~/devops-netology/terraform$ git show b8d720 --parents  
+
+commit b8d720f8340221f2146e4e4870bf2ee0bc48f2d5 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b  
+
+Merge: 56cd7859e0 9ea88f22fc  
+
+Author: Chris Griggs <cgriggs@hashicorp.com>  
+
+Date:   Tue Jan 21 17:45:48 2020 -0800  
+
 
     Merge pull request #23916 from hashicorp/cgriggs01-stable
 
     [Cherrypick] community links
 
+    Merge: 56cd7859e0 9ea88f22fc
+
+
 _____Задание 4_____
 
 Смотрим лог, берем нужный диапазон
 
-amaksimov@git:~/devops-netology/terraform$ git log v0.12.24 v0.12.23 --oneline
-33ff1c03bb (tag: v0.12.24) v0.12.24
+amaksimov@git:~/devops-netology/terraform$ git log v0.12.24 v0.12.23 --oneline  
+
+>>>>>>>33ff1c03bb (tag: v0.12.24) v0.12.24
 b14b74c493 [Website] vmc provider links
 3f235065b9 Update CHANGELOG.md
 6ae64e247b registry: Fix panic when server is unreachable
@@ -51,10 +67,11 @@ d5f9411f51 command: Fix bug when using terraform login on Windows
 4b6d06cc5d Update CHANGELOG.md
 dd01a35078 Update CHANGELOG.md
 225466bc3e Cleanup after v0.12.23 release
-85024d3100 (tag: v0.12.23) v0.12.23
+85024d3100 (tag: v0.12.23) v0.12.23<<<<<<<
 
 _____Задание 5_____
 
+```
 Определяем где изменялась функция, находим коммит в котором она была создана
 
 amaksimov@git:~/devops-netology/terraform$ git log -S'func providerSource' --oneline
@@ -66,9 +83,9 @@ Author: Martin Atkins <mart@degeneration.co.uk>
 Date:   Thu Apr 2 18:04:39 2020 -0700
 
     main: Consult local directories as potential mirrors of providers
-
+```
 _____Задание 6_____
-
+```
 Определяем файлы где упоминалась функция
 
 git grep -n -e "globalPluginDirs"
@@ -241,10 +258,10 @@ diff --git a/plugins.go b/plugins.go
 +
 +       return ret
 +}
-
+```
 
 _____Задание 7_____
-
+```
 Определяем в каких коммитах добавляется выражение и просматриваем нужный
 Author: Martin Atkins <mart@degeneration.co.uk>
 
@@ -256,4 +273,4 @@ amaksimov@git:~/devops-netology/terraform$ git show 5ac311e2a9
 commit 5ac311e2a91e381e2f52234668b49ba670aa0fe5
 Author: Martin Atkins <mart@degeneration.co.uk>
 Date:   Wed May 3 16:25:41 2017 -0700
-
+```
