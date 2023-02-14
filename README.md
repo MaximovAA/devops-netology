@@ -1,7 +1,7 @@
 # devops-netology
 _____Задание 1_____
 
-Просто смотрим коммит
+***Просто смотрим коммит***
 
 amaksimov@git:~/devops-netology/terraform$ git show aefea  
 
@@ -16,7 +16,7 @@ Date:   Thu Jun 18 10:29:58 2020 -0400
 
 _____Задание 2_____
 
-Просто смотрим коммит
+***Просто смотрим коммит***
 
 amaksimov@git:~/devops-netology/terraform$ git show 85024d3  
 
@@ -31,7 +31,7 @@ Date:   Thu Mar 5 20:56:10 2020 +0000
 
 _____Задание 3_____
 
-Нужный нам коммит был создан в резултате мерджа 2х коммитов 
+***Нужный нам коммит был создан в резултате мерджа 2х коммитов*** 
 
 amaksimov@git:~/devops-netology/terraform$ git show b8d720 --parents  
 
@@ -53,11 +53,11 @@ Date:   Tue Jan 21 17:45:48 2020 -0800
 
 _____Задание 4_____
 
-Смотрим лог, берем нужный диапазон
-
+***Смотрим лог, берем нужный диапазон***
+```
 amaksimov@git:~/devops-netology/terraform$ git log v0.12.24 v0.12.23 --oneline  
 
->>>>>>>33ff1c03bb (tag: v0.12.24) v0.12.24
+33ff1c03bb (tag: v0.12.24) v0.12.24
 b14b74c493 [Website] vmc provider links
 3f235065b9 Update CHANGELOG.md
 6ae64e247b registry: Fix panic when server is unreachable
@@ -68,12 +68,12 @@ d5f9411f51 command: Fix bug when using terraform login on Windows
 dd01a35078 Update CHANGELOG.md
 225466bc3e Cleanup after v0.12.23 release
 85024d3100 (tag: v0.12.23) v0.12.23<<<<<<<
-
+```
 _____Задание 5_____
 
-```
-Определяем где изменялась функция, находим коммит в котором она была создана
 
+***Определяем где изменялась функция, находим коммит в котором она была создана***
+```
 amaksimov@git:~/devops-netology/terraform$ git log -S'func providerSource' --oneline
 5af1e6234a main: Honor explicit provider_installation CLI config when present
 8c928e8358 main: Consult local directories as potential mirrors of providers
@@ -85,13 +85,13 @@ Date:   Thu Apr 2 18:04:39 2020 -0700
     main: Consult local directories as potential mirrors of providers
 ```
 _____Задание 6_____
+
+***Определяем файлы где упоминалась функция***  
+
+git grep -n -e "globalPluginDirs"  
+
+Определяем в каких коммитах изменялась  
 ```
-Определяем файлы где упоминалась функция
-
-git grep -n -e "globalPluginDirs"
-
-Определяем в каких коммитах изменялась
-
 amaksimov@git:~/devops-netology/terraform$ git log -L :globalPluginDirs:plugins.go   
 commit 78b12205587fe839f10d946ea3fdc06719decb05
 Author: Pam Selle <204372+pselle@users.noreply.github.com>
@@ -261,8 +261,9 @@ diff --git a/plugins.go b/plugins.go
 ```
 
 _____Задание 7_____
+
+***Определяем в каких коммитах добавляется выражение и просматриваем нужный***  
 ```
-Определяем в каких коммитах добавляется выражение и просматриваем нужный
 Author: Martin Atkins <mart@degeneration.co.uk>
 
 amaksimov@git:~/devops-netology/terraform$ git log -S'synchronizedWriters' --oneline 
